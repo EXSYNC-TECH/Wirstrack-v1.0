@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WirsTrack | Formulir Kurir</title>
+    <link rel="icon" href="src/img/icon.svg">
+    <!-- My Style -->
+    <link rel="stylesheet" href="src/css/form.css">
+</head>
+
+<body>
+    <!-- Navbar Start -->
+    <nav>
+        <div class="brand">
+            <a href="index.html"><img src="src/img/logo.svg" alt="Logo"></a>
+        </div>
+        <div class="navigation">
+            <ul>
+                <li><a class="menu" href="#">Beranda</a></li>
+                <li><a class="menu" href="#foot">Tentang</a></li>
+                <li><a class="kontak" href="#">Kontak</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <!-- Body Section Start -->
+    <section class="body">
+        <div class="box">
+            <div class="splitLeft">
+                <div class="head">
+                    <a href="index.html"><img src="src/img/back.svg" alt="back"></a>
+                    <h3>Formulir Kurir</h3>
+                </div>
+                <form action="alamat.html" method="POST">
+                    <label for="nama">Nama Lengkap</label>
+                    <input type="text" name="nama" id="nama" placeholder="Masukkan Nama Lengkap" autocomplete="off">
+
+                    <label for="nomor">Nomor Handphone</label>
+                    <input type="text" name="nomor" id="nomor" placeholder="Masukkan Nomor Handphone" autocomplete="off"
+                        onkeypress="angka(event)" maxlength="13">
+
+                    <input disabled="disabled" id="submit" type="submit" value="Lanjutkan">
+                </form>
+            </div>
+            <div class="splitRight">
+                <img src="src/img/map.png" alt="browserframe">
+            </div>
+        </div>
+    </section>
+    <!-- Body Section End -->
+
+    <div class="shape">&nbsp;</div>
+
+    <!-- Foot Section Start -->
+    <section id="foot">
+        <div class="copyright">
+            <p>© Copyright 2023, Semua Hak Cipta Dilindungi oleh WirsTrack.</p>
+        </div>
+        <hr>
+        <div class="split">
+            <div class="splitLeft">
+                <img src="src/img/logo.svg" alt="logo">
+                <p>WirsTrack adalah platform geolokasi yang memudahkan Anda menemukan lokasi berdasarkan nama, nomor
+                    telepon, dan alamat. Dapatkan petunjuk arah yang jelas dengan antarmuka yang sederhana dan ramah
+                    pengguna.</p>
+                <div class="sosmed">
+                    <a href="#"><img src="src/img/whatsapp.svg" alt="wa"></a>
+                    <a href="#"><img src="src/img/instagram.svg" alt="ig"></a>
+                </div>
+            </div>
+            <div class="garis"></div>
+            <div class="splitRight">
+                <div class="perusahaan">
+                    <h3>PERUSAHAAN</h3>
+                    <a href="#">Tentang Kami</a>
+                </div>
+                <div class="bantuan">
+                    <h3>BANTUAN</h3>
+                    <a href="#">Syarat & Ketentuan</a>
+                    <a href="#">Kebijakan Privasi</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- Foot Section End -->
+
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+
+    <!-- Disable Button -->
+    <script>
+        (function () {
+            $('form > input').keyup(function () {
+
+                var empty = false;
+                $('form > input').each(function () {
+                    if ($(this).val() == '') {
+                        empty = true;
+                    }
+                });
+
+                if (empty) {
+                    $('#submit').attr('disabled', 'disabled');
+                    $("input[type=submit").css("background-color", "#D5D9EB");
+                } else {
+                    $('#submit').removeAttr('disabled');
+                    $("input[type=submit").css("background-color", "#175CD3");
+                }
+            });
+        })()
+    </script>
+
+    <!-- Number Only -->
+    <script>
+        function angka(evt) {
+
+            var char = String.fromCharCode(evt.which);
+            if (!(/[0-9]/.test(char))) {
+                evt.preventDefault();
+            }
+
+        }
+    </script>
+
+
+</body>
+
+</html>
